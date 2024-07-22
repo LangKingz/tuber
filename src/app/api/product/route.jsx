@@ -10,7 +10,6 @@ const data = [
     fitur1: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
     fitur2: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
     fitur3: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
-
   },
   {
     id: 2,
@@ -31,10 +30,19 @@ const data = [
     fitur1: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
     fitur2: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
     fitur3: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia praesentium assumenda dolores veniam laborum.",
-
   },
 ];
 
-export const GET = async () => {
+export const GET = async (request) => {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id");
+
+  if(id){
+    const detailsId = data.find((item)=>item.id === parseInt(id))
+    if(detailsId){
+      return NextResponse.json({message: "success" , data : detailsId})
+    }
+  }
+
   return NextResponse.json({ message: "success", status: 200, data: data });
 };

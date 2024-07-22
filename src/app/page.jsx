@@ -36,7 +36,7 @@ export default async function Home() {
                 Rp <span className="font-bold text-4xl">{e.price.toLocaleString("id-ID")}</span>/bln
               </p>
             </div>
-            <Link href="" className="btn text-[#0074A7] bg-white">Pilih Paket</Link>
+            <Link href={`/details/${e.id}`} className="btn text-[#0074A7] bg-white">Pilih Paket</Link>
             <div className="">
               <p className="text-white text-center">{e.desc}</p>
               <hr className="my-8 font-bold h-1 border-none bg-white " />
