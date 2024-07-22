@@ -5,8 +5,7 @@ import Link from "next/link";
 export default async function Home() {
   const data = await getData("http://localhost:3000/api/product");
   const dataProduct = data.data;
-  // const fitur = dataProduct.fitur;
-  console.log(dataProduct);
+
   return (
     <div className="flex flex-col mt-20">
       <div className="flex justify-center w-full p-8 lg:px-14 py-5 flex-wrap lg:mt-16 mt-8 gap-y-14">
