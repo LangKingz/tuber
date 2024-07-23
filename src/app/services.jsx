@@ -1,9 +1,7 @@
 export const getData = async (url) => {
   const res = await fetch(url, {
-    cache: "force-cache",
-    next: {
-      revalidate: 10,
-    },
+    cache: "no-store",
+
   });
   if(!res.ok){
     throw new Error("Failed to fetch data");

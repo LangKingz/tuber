@@ -1,8 +1,12 @@
+"use client";
+
+import { PackagesContext } from "@/context/context";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
+  const { email, method, product, selected } = useContext(PackagesContext);
   const date = new Date().toLocaleDateString("id-ID", {
     day: "numeric",
     month: "long",
@@ -10,6 +14,10 @@ const page = ({ params }) => {
     hour: "numeric",
     minute: "numeric",
   });
+
+  const { v4: uuidv4 } = require("uuid");
+
+  const id = uuidv4();
 
   return (
     <div>
@@ -30,27 +38,32 @@ const page = ({ params }) => {
         <div className="w-2/4 p-10 bg-gradient-to-b from-[#0074A7] to-[#085172] rounded-xl mt-8 text-white">
           <div className="flex justify-between items-center my-4">
             <p>ID Transaksi</p>
-            <p>{params.id}</p>
+            <p>{id}</p>
           </div>
           <hr />
           <div className="flex justify-between items-center my-4">
             <p>Paket</p>
-            <p>{params.id}</p>
+            <p>{product?.title}</p>
           </div>
           <hr />
           <div className="flex justify-between items-center my-4">
             <p>Pembayaran</p>
-            <p>{params.id}</p>
+            <p>{method}</p>
           </div>
           <hr />
           <div className="flex justify-between items-center my-4">
             <p>Alamat Email</p>
-            <p>{params.id}</p>
+            <p>{email}</p>
           </div>
           <hr />
           <div className="flex justify-between items-center my-4">
             <p className="font-bold text-2xl">Total</p>
-            <p className="font-bold text-2xl">100000</p>
+            <p className="font-bold text-2xl">
+              {selected?.price.toLocaleString("id-ID", {
+                currency: "IDR",
+                style: "currency",
+              })}
+            </p>
           </div>
         </div>
       </div>
@@ -58,4 +71,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

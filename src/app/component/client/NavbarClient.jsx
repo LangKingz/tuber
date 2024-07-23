@@ -11,17 +11,9 @@ const NavbarClient = () => {
     "/register",
     "/payment",
     "/bill",
-    "/transaksi/Bill/[id]",
-    "/transaksi/Bill/1",
-    "/transaksi/Bill/2",
-    "/transaksi/Bill/3",
-    "/transaksi/Bill/4",
-    "/transaksi/Bill/5",
-    "/transaksi/Bill/6",
-    "/transaksi/Bill/7",
-    "/transaksi/Bill/8",
-    "/transaksi/Bill/9",
-    "/transaksi/Bill/10",
+    '/transaksi',
+    "/transaksi/bill",
+
   ];
   return <div>{disable.includes(path) ? null : <Navbar />}</div>;
 };

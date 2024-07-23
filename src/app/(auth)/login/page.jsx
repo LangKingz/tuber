@@ -14,7 +14,7 @@ const LoginPages = () => {
         </Link>
       </div>
       <div className="h-full w-full flex justify-center items-center">
-        <div className="bg-white rounded-xl shadow-2xl flex flex-col w-full lg:w-1/3 p-8 ">
+        <div className="bg-white rounded-xl shadow-xl shadow-gray-700 flex flex-col w-full lg:w-1/3 p-8 ">
           <button className="btn border-black">
             <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1_1833)">

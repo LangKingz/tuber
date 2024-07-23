@@ -2,6 +2,7 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/component/Navbar";
 import NavbarClient from "./component/client/NavbarClient";
+import PackagesProvider from "@/context/context";
 
 const inter = Inter({ subsets: ["latin"] });
 const Monsterat = Montserrat({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
@@ -18,8 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={Monsterat.className}>
-        <NavbarClient />
-        {children}
+        <PackagesProvider>
+          <NavbarClient />
+          {children}
+        </PackagesProvider>
       </body>
       <script async src="https://kit.fontawesome.com/59a47457f6.js" crossOrigin="anonymous"></script>
     </html>

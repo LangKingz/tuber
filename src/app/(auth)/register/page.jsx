@@ -8,7 +8,7 @@ const RegisterPage = () => {
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="lg:flex hidden w-1/3 bg-[#085172] relative ">
-        <Image className="absolute right-[-5%] h-[80%] w-[80%] top-20" src={"/Regis.png"} alt="" width={150} height={150} />
+        <Image className="absolute right-[-10%] h-[80%] w-[80%] top-20" src={"/Regis.svg"} alt="" width={150} height={150} />
       </div>
       <div className="flex-1 p-2 ">
         <div className="header flex justify-end ">
@@ -17,7 +17,7 @@ const RegisterPage = () => {
           </Link>
         </div>
         <div className=" flex flex-col my-6 h-[80%] p-3 justify-center">
-          <form action="" className="lg:shadow rounded-xl lg:border w-full lg:w-2/3 lg:ml-5 p-10 lg:p-16 flex flex-col gap-3">
+          <form action="" className="lg:shadow-2xl rounded-xl lg:border w-full lg:w-2/3 lg:ml-5 p-10 lg:p-16 flex flex-col gap-3">
             <h1 className="text-3xl text-center font-bold text-[#085172]">Register</h1>
             <InputField labels="Username" type="text" placeholder="Masukan nama anda" icon="user" />
             <InputField labels="Username" type="text" placeholder="Masukan email anda" icon="envelope" />
