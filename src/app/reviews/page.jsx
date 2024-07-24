@@ -3,7 +3,7 @@ import React from "react";
 import { getData } from "../services";
 
 const ReviewsPages = async () => {
-  const data = await getData("http://localhost:3000/api/reviews");
+  const data = await getData("https://tuber-langkingzs-projects.vercel.app/api/reviews");
   const comment = data.data;
   console.log(comment);
   return (

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { getData } from "../services";
 import Link from "next/link";
 import { PackagesContext } from "@/context/context";
+import Image from "next/image";
 
 const CardHome =  () => {
   const [data, setData] = useState([]);
@@ -36,7 +37,7 @@ const CardHome =  () => {
           </div>
 
           <div className="flex justify-center">
-            <img src={e.image} alt="" className=" object-fill rounded-xl object-cover" />
+            <Image width={200} height={200} src={e.image} alt="" className=" object-fill rounded-xl object-cover" />
           </div>
           <div className="text-white  flex justify-center ">
             <p>

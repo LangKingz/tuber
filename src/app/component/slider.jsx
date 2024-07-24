@@ -11,6 +11,7 @@ import "swiper/css/scrollbar";
 import { getData } from "../services";
 import CardHome from "./card";
 import Link from "next/link";
+import Image from "next/image";
 
 const Slider = () => {
   const [data, setData] = useState([]);
@@ -27,11 +28,10 @@ const Slider = () => {
       <Swiper
         className=""
         // install Swiper modules
-        modules={[Navigation, FreeMode,Pagination]}
+        modules={[Navigation, FreeMode, Pagination]}
         slidesPerView={1}
         spaceBetween={30}
         navigation
-
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
         centerInsufficientSlides={true}
@@ -44,7 +44,7 @@ const Slider = () => {
               </div>
 
               <div className="flex justify-center">
-                <img src={e.image} alt="" className=" object-fill rounded-xl object-cover" />
+                <Image width={200} height={200} src={e.image} alt="" className=" object-fill rounded-xl object-cover" />
               </div>
               <div className="text-white  flex justify-center ">
                 <p>
