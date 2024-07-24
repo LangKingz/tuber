@@ -71,6 +71,11 @@ const Navbar = () => {
               FAQ
             </Link>
           </li>
+          <li className={`w-full p-8 text-[#0074A7] font-medium text-xl border hover:bg-gray-300 ${pathName === "/login" ? "bg-slate-300" : ""} `}>
+            <Link href={"/login"} className={`w-full`}>
+              Sign in
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
