@@ -20,7 +20,7 @@ const Page = ({ params }) => {
   const id = uuidv4();
 
   return (
-    <div>
+    <div className="">
       <nav className="p-4 flex px-8 items-center justify-between ">
         <div className="">
           <Image src={"/logo.png"} alt="" width={120} height={120} className="bg-[#0074A7] p-2 rounded-full" />
@@ -31,32 +31,32 @@ const Page = ({ params }) => {
           </Link>
         </div>
       </nav>
-      <div className="flex p-8 justify-center items-center flex-col">
+      <div className="flex p-8 w-full  justify-center items-center flex-col">
         <Image src={"/success.png"} alt="" width={100} height={100} className="bg-center" />
         <h1 className="text-3xl font-bold text-[#0074A7] my-3">TRANSAKSI BERHASIL</h1>
         <p className="text-gray-500 font-bold ">{date}</p>
-        <div className="w-2/4 p-10 bg-gradient-to-b from-[#0074A7] to-[#085172] rounded-xl mt-8 text-white">
-          <div className="flex justify-between items-center my-4">
+        <div className="lg:w-2/4 w-full p-10 bg-gradient-to-b from-[#0074A7] to-[#085172] rounded-xl mt-8 text-white">
+          <div className="flex justify-between items-center my-4 gap-4">
             <p>ID Transaksi</p>
-            <p>{id}</p>
+            <p className="">{id}</p>
           </div>
           <hr />
-          <div className="flex justify-between items-center my-4">
+          <div className="flex justify-between items-center my-4 ">
             <p>Paket</p>
             <p>{product?.title}</p>
           </div>
           <hr />
-          <div className="flex justify-between items-center my-4">
+          <div className="flex justify-between items-center my-4 gap-4">
             <p>Pembayaran</p>
             <p>{method}</p>
           </div>
           <hr />
-          <div className="flex justify-between items-center my-4">
+          <div className="flex justify-between items-center my-4 gap-4">
             <p>Alamat Email</p>
             <p>{email}</p>
           </div>
           <hr />
-          <div className="flex justify-between items-center my-4">
+          <div className="flex justify-between items-center my-4 gap-4">
             <p className="font-bold text-2xl">Total</p>
             <p className="font-bold text-2xl">
               {selected?.price.toLocaleString("id-ID", {

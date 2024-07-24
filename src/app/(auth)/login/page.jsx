@@ -13,7 +13,7 @@ const LoginPages = () => {
           <Image src={"/logo.png"} width={150} height={100} alt={"logo"} />
         </Link>
       </div>
-      <div className="h-full w-full flex justify-center items-center">
+      <div className="h-full w-full flex justify-center p-3 items-center">
         <div className="bg-white rounded-xl shadow-xl shadow-gray-700 flex flex-col w-full lg:w-1/3 p-8 ">
           <button className="btn border-black">
             <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">

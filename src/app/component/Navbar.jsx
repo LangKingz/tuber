@@ -28,7 +28,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href={"/"}>FAQ</Link>
+            <Link className={pathName === "/faq" ? "text-[#f4e83c]" : ""} href={"/faq"}>
+              FAQ
+            </Link>
           </li>
           <li>
             <Link href="/login" className="py-2  px-4 border rounded-2xl">
