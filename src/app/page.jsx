@@ -6,7 +6,7 @@ import ReviewCardHome from "./component/Reviews";
 import Slider from "./component/slider";
 import Footer from "./component/footer";
 
-export default async function Home() {
+const Home = async () => {
   return (
     <>
       <div className="flex flex-col mt-12 p-8 lg:p-12 ">
@@ -45,4 +45,6 @@ export default async function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

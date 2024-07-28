@@ -3,8 +3,9 @@ import React from "react";
 import { getData } from "../services";
 
 const ReviewsPages = async () => {
-  const data = await getData("https://tuber-langkingzs-projects.vercel.app/api/reviews");
+  const data = await getData("http://localhost:3000/api/reviews");
   const comment = data.data;
+  
   console.log(comment);
   return (
     <div className="mt-20 lg:px-20 p-6">
@@ -13,11 +14,9 @@ const ReviewsPages = async () => {
         {comment.map((e) => (
           <div key={e.id} className="card my-6  p-8 bg-gray-200 rounded-xl">
             <div className="flex">
-
-              {Array.from({length: e.rating}).map((e)=>(
+              {Array.from({ length: e.rating }).map((e) => (
                 <img key={e} src="star.svg" alt="" srcset="" />
               ))}
-              
             </div>
             <div className="my-3">
               <h1 className="font-bold  text-2xl">{e.type}</h1>
