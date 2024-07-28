@@ -24,7 +24,14 @@ const ReviewsPages = async () => {
             </div>
             <div className="flex items-center">
               <div className="pofile">
-                <img src={e.image} alt="" srcset="" className="rounded-full" width={50} height={50} />
+                <img
+                  src={e.image}
+                  alt=""
+                  srcset=""
+                  className="rounded-full"
+                  width={50}
+                  height={50}
+                />
               </div>
               <div className="ml-3">
                 <h1 className="font-bold">{e.name}</h1>
