@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode, Pagination } from "swiper/modules";
 
@@ -12,6 +12,7 @@ import { getData } from "../services";
 import CardHome from "./card";
 import Link from "next/link";
 import Image from "next/image";
+import { PackagesContext } from "@/context/context";
 
 const Slider = () => {
   const [data, setData] = useState([]);
@@ -22,6 +23,12 @@ const Slider = () => {
     };
     fetchData();
   }, []);
+
+  const { setProduct } = useContext(PackagesContext);
+  const handleClick = (e) => {
+    setProduct(e);
+  };
+
   console.log(data);
   return (
     <div className="my-12 justify-center flex">
@@ -44,14 +51,14 @@ const Slider = () => {
               </div>
 
               <div className="flex justify-center">
-                <Image width={200} height={200} src={e.image} alt="" className=" object-fill rounded-xl object-cover" />
+                <Image width={200} height={200} src={e.image} alt="" className=" rounded-xl object-cover" />
               </div>
               <div className="text-white  flex justify-center ">
                 <p>
                   Rp <span className="font-bold text-4xl">{e.price.toLocaleString("id-ID")}</span>/bln
                 </p>
               </div>
-              <Link href={`/details/${e.id}`} className="btn text-[#0074A7] bg-white">
+              <Link onClick={() => handleClick(e)} href={`/details/${e.id}`} className="btn text-[#0074A7] bg-white">
                 Pilih Paket
               </Link>
               <div className="">

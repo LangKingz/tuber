@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getData } from "../services";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, FreeMode, Navigation, Pagination, Scrollbar } from "swiper/modules";
@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { PackagesContext } from "@/context/context";
 
 const CardMobile = () => {
   const [data, setData] = useState([]);
@@ -20,6 +21,8 @@ const CardMobile = () => {
     };
     fetchData();
   }, []);
+
+  const {setProduct} = useContext(PackagesContext)
 
   const handleSelect = () => {
     setSelect(!select);
