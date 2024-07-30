@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import Swal from "sweetalert2";
 
 const RegisterPage = () => {
   const { push } = useRouter();
@@ -14,6 +15,15 @@ const RegisterPage = () => {
     let username = e.target.username.value;
     let email = e.target.email.value;
     let password = e.target.password.value;
+
+    if (!username || !email || !password) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all the fields",
+      })
+      return;
+    }
 
     console.log(username, email, password);
 
