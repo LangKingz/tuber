@@ -1,10 +1,43 @@
+"use client";
 import InputField from "@/app/component/input";
 import PasswordField from "@/app/component/password";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const LoginPages = () => {
+  const { push } = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+
+    let emailLocal = localStorage.getItem("email");
+    let passwordLocal = localStorage.getItem("password");
+
+    if (email === "" || password === "") {
+      setError(!false);
+    }
+
+    if (email === emailLocal && password === passwordLocal) {
+      setIsLoading(!false);
+      setTimeout(() => {
+        push("/");
+      }, 2000);
+    } else {
+      Swal.fire({
+        title: "Login Failed",
+        text: "Please check your email and password",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
   return (
     <div className="flex flex-col w-screen bg-gradient-to-b from-[#0074A7] to-[#084E72] h-screen items-center">
       <div className="header justify-start flex px-7 py-4 w-full ">
@@ -15,7 +48,15 @@ const LoginPages = () => {
       </div>
       <div className="h-full w-full flex justify-center p-3 items-center">
         <div className="bg-white rounded-xl shadow-xl shadow-gray-700 flex flex-col w-full lg:w-1/3 p-8 ">
-          <button className="btn border-black">
+          {error ? (
+            <div role="alert" className="alert alert-error text-white my-3 lg:text-md text-sm flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Please check your email and password</span>
+            </div>
+          ) : null}
+          <button className="btn border-black ">
             <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1_1833)">
                 <path
@@ -48,9 +89,9 @@ const LoginPages = () => {
             Continue with google
           </button>
           <div className="divider">or</div>
-          <form action="" className="flex flex-col">
-            <InputField placeholder="Masukkan email anda" type="email" labels="Email" icon="envelope" />
-            <PasswordField placeholder="Masukan password anda" labels="Password" icon="key" />
+          <form onSubmit={handleLogin} action="" className="flex flex-col">
+            <InputField name="email" placeholder="Masukkan email anda" type="email" labels="Email" icon="envelope" />
+            <PasswordField name="password" placeholder="Masukan password anda" labels="Password" icon="key" />
             <div className="flex flex-row justify-between mt-2 mb-8">
               <label htmlFor="" className="flex items-center gap-2">
                 <input type="checkbox" className="h-4 w-4 border-black" name="remember" id="" />
@@ -58,12 +99,12 @@ const LoginPages = () => {
                   ingat sandi
                 </label>
               </label>
-              <Link href="/forgot-password" className="font-medium text-sm">
+              <Link href="/forget" className="font-medium text-sm">
                 Lupa sandi?
               </Link>
             </div>
             <button type="submit" className="bg-[#084E72] btn hover:bg-[#0074A7] text-white py-4 px-5 rounded-2xl  font-semibold">
-              Log In
+              {isLoading ? (  <><span className="loading loading-spinner"></span> Loading...</> ) : "Sign In"}
             </button>
             <p className="flex justify-center items-center">
               Don&apos;t have an account?{" "}

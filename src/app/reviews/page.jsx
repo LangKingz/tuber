@@ -5,7 +5,7 @@ import { getData } from "../services";
 const ReviewsPages = async () => {
   const data = await getData("http://localhost:3000/api/reviews");
   const comment = data.data;
-  
+
   console.log(comment);
   return (
     <div className="mt-20 lg:px-20 p-6">
@@ -24,14 +24,7 @@ const ReviewsPages = async () => {
             </div>
             <div className="flex items-center">
               <div className="pofile">
-                <img
-                  src={e.image}
-                  alt=""
-                  srcset=""
-                  className="rounded-full"
-                  width={50}
-                  height={50}
-                />
+                <img src={e.image} alt="" srcset="" className="rounded-full" width={50} height={50} />
               </div>
               <div className="ml-3">
                 <h1 className="font-bold">{e.name}</h1>

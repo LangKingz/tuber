@@ -13,7 +13,7 @@ const NavbarClient = () => {
     "/bill",
     '/transaksi',
     "/transaksi/bill",
-
+    "/forget"
   ];
   return <div>{disable.includes(path) ? null : <Navbar />}</div>;
 };

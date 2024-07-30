@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 const Navbar = () => {
+  const username = localStorage.getItem("username");
+
   const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -32,10 +34,19 @@ const Navbar = () => {
               FAQ
             </Link>
           </li>
+          <li className={!username ? "hidden" : ""}>
+            <h1>{username}</h1>
+          </li>
           <li>
-            <Link href="/login" className="py-2  px-4 border rounded-2xl">
-              Login
-            </Link>
+            {username ? (
+              <Link href={"/"} onClick={() => localStorage.clear()} className="py-2  px-4 border rounded-2xl">
+                logout
+              </Link>
+            ) : (
+              <Link href="/login" className="py-2  px-4 border rounded-2xl">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </div>
