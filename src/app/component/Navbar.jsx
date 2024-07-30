@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="lg:flex hidden ">
         <ul className="flex items-center gap-x-7 font-semibold text-white">
           <li>
-            <Link className={pathName === "/" ? "text-[#f4e83c]" : ""} href={"/"}>
+            <Link  className={pathName === "/" ? "text-[#f4e83c]" : ""} href={"/"}>
               Home
             </Link>
           </li>
@@ -68,26 +68,33 @@ const Navbar = () => {
       <div className={`transition delay-200 ease-in absolute top-[4.5rem] right-0  bg-white w-full z-10 h-screen ${isOpen ? "block lg:hidden" : "hidden"}`}>
         <ul className="text-center w-full  ">
           <li className={`w-full p-8 text-[#0074A7] font-medium text-xl border hover:bg-gray-300 ${pathName === "/" ? "bg-slate-300 text-white" : ""} `}>
-            <Link href={"/"} className={`w-full `}>
+            <a href={"/"} className={`w-full `}>
               Home
-            </Link>
+            </a>
           </li>
           <li className={`w-full p-8 text-[#0074A7] font-medium text-xl border hover:bg-gray-300 ${pathName === "/reviews" ? "bg-slate-300" : ""} `}>
-            <Link href={"/reviews"} className={`w-full `}>
+            <a href={"/reviews"} className={`w-full `}>
               Reviews
-            </Link>
+            </a>
           </li>
           <li className={`w-full p-8 text-[#0074A7] font-medium text-xl border hover:bg-gray-300 ${pathName === "/faq" ? "bg-slate-300" : ""} `}>
-            <Link href={"/faq"} className={`w-full`}>
+            <a href={"/faq"} className={`w-full`}>
               FAQ
-            </Link>
+            </a>
           </li>
           <li className={`w-full p-8 text-[#0074A7] font-medium text-xl border hover:bg-gray-300 ${pathName === "/login" ? "bg-slate-300" : ""} `}>
-            <Link href={"/login"} className={`w-full`}>
-              Sign in
-            </Link>
+            {username ? (
+              <Link onClick={() => localStorage.clear()} href={"/login"} className={`w-full`}>
+                SignOut
+              </Link>
+            ) : (
+              <Link href={"/login"} className={`w-full`}>
+                Sign in
+              </Link>
+            )}
           </li>
         </ul>
+        <h1 className={`text-[#0074A7] font-bold text-xl text-center bg-slate-300 p-4 ${username ? "" : "hidden"}`}>{username}</h1>
       </div>
     </nav>
   );

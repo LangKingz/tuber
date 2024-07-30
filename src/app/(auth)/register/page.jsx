@@ -3,9 +3,11 @@ import InputField from "@/app/component/input";
 import PasswordField from "@/app/component/password";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const RegisterPage = () => {
+  const { push } = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -19,6 +21,7 @@ const RegisterPage = () => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
 
+    push("/login");
     e.target.reset();
   };
 
