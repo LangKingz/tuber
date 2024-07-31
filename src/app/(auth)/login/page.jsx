@@ -63,7 +63,10 @@ const LoginPages = () => {
               </Link>
             </div>
             <button type="submit" className="bg-[#084E72] btn hover:bg-[#0074A7] text-white py-4 px-5 rounded-2xl  font-semibold">
-              Log In
+              
+              <Link href="/page" className="font-bold text-sm">
+                Log In
+              </Link>
             </button>
             <p className="flex justify-center items-center">
               Don&apos;t have an account?{" "}
