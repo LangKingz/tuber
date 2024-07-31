@@ -14,7 +14,7 @@ const Detailspages = async ({ params }) => {
       <div className="flex justify-center mt-32 gap-5 flex-wrap">
         <div className=" w-full p-3 lg:w-1/2 gap-10 lg:gap-0 flex flex-col justify-evenly">
           <div className="">
-            <h1 className="text-6xl font-bold text-[#0074A7]">{data.data.title}</h1>
+            <h1 className="text-6xl font-bold text-[#0074A7] my-5">{data.data.title}</h1>
             <p className="font-normal text-[#FF9500]">{data.data.desc}</p>
           </div>
           <ul>

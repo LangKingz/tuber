@@ -23,13 +23,8 @@ const page = () => {
 
             <PasswordField labels="Password Lama" placeholder="Password lama" icon="key" />
             <PasswordField labels="Password Baru" placeholder="Password baru" icon="key" />
-            <label htmlFor="" className="flex items-center gap-3 mt-2 text-sm">
-              <input type="checkbox" name="" className="h-4 w-4" id="" />
-              <p>
-                I agree with LARNHost&apos;s <span className="text-[#0074A7]">Terms and Conditions</span>
-              </p>
-            </label>
-            <button className="bg-[#0074A7] btn hover:bg-[#085172] text-white py-4 px-5 rounded-2xl  font-semibold mt-5">Sign Up</button>
+
+            <button className="bg-[#0074A7] btn hover:bg-[#085172] text-white py-4 px-5 rounded-2xl  font-semibold mt-5">Confirm</button>
           </form>
         </div>
       </div>

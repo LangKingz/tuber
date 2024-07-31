@@ -8,10 +8,9 @@ const Footer = () => {
       <div className="flex w-1/3 p-3 flex-col flex-wrap gap-2">
         <Image src={"/logo.png"} alt="" width={150} height={150} />
         <div className="caption gap-4 flex flex-col text-[#C1D3AC]">
-          <p className="text-sm font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sunt nostrum aliquam expedita aliquid voluptatem aut tempora blanditiis ipsam saepe!</p>
-          <p className="text-sm font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sunt nostrum aliquam expedita aliquid voluptatem aut tempora blanditiis ipsam saepe!</p>
+          <p className="text-sm font-light">website ini hanyalah projek pribadi biasa, bukan website asli yang menyediakan layanan hosting.</p>
         </div>
-        <div className="medsos flex gap-3 text-xl text-[#C1D3AC]">
+        <div className="medsos flex gap-3 text-xl text-[#C1D3AC] py-5">
           <i class="fa-brands fa-x-twitter"></i>
           <i class="fa-brands fa-instagram"></i>
           <i class="fa-brands fa-youtube"></i>
